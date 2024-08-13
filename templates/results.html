@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Similarity Results</title>
+</head>
+<body>
+    <h1>Similarity Results</h1>
+    <h2>Similarity Matrix</h2>
+    <table border="1">
+        <tr>
+            <th>Code Pair</th>
+            <th>Similarity (%)</th>
+        </tr>
+        {% for pair, score in similarity_matrix.items() %}
+        <tr>
+            <td>{{ pair[0] }} vs {{ pair[1] }}</td>
+            <td>{{ score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Similarity Network</h2>
+    <img src="{{ url_for('static', filename='similarity_network.png') }}" alt="Similarity Network">
+
+    <h2>Similarity Heatmap</h2>
+    <img src="{{ url_for('static', filename='similarity_heatmap.png') }}" alt="Similarity Heatmap">
+
+    <a href="/">Go Back</a>
+</body>
+</html>
